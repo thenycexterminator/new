@@ -10,6 +10,7 @@ import {
 import { PHONE, SITE_URL, SITE_NAME, EMAIL } from "@/lib/seo";
 import { getBreadcrumbSchema } from "@/lib/seo";
 import CareersCTA from "@/components/CareersCTA";
+import JobApplicationForm from "@/components/JobApplicationForm";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -782,6 +783,29 @@ export default async function NeighborhoodCareersPage({ params }: PageProps) {
               to learn more about the company and team behind {SITE_NAME}. Your
               next career as an exterminator in {neighborhood.name} starts here.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── APPLICATION FORM ── */}
+      <section id="apply" className="bg-[#0A0A0A] py-20 text-white">
+        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-green-400/80">
+              Apply Now
+            </p>
+            <h2 className="mt-2 text-3xl font-bold sm:text-4xl">
+              Apply for Exterminator Jobs in{" "}
+              <span className="text-green-400">{neighborhood.name}</span>
+            </h2>
+            <p className="mx-auto mt-3 max-w-2xl text-zinc-400">
+              Fill out the form below to apply for a pest control position
+              serving {neighborhood.name} and the surrounding {neighborhood.region} area.
+              No resume required &mdash; just tell us about yourself.
+            </p>
+          </div>
+          <div className="mt-10 rounded-xl border border-white/[0.06] bg-[#141414] p-6 sm:p-8">
+            <JobApplicationForm neighborhood={neighborhood.name} />
           </div>
         </div>
       </section>

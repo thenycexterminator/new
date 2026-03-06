@@ -20,7 +20,33 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    if (formType === "general-inquiry") {
+    if (formType === "job-application") {
+      const { position, experience, license, availability, location } = body;
+      await getResend().emails.send({
+        from: `The NYC Exterminator <${FROM_EMAIL}>`,
+        to: NOTIFY_EMAIL,
+        subject: `Job Application: ${position || "General"} - ${name} ${location ? `in ${location}` : ""}`,
+        html: `
+          <div style="font-family: sans-serif; max-width: 600px;">
+            <h2 style="color: #16a34a;">Job Application - TheNYCExterminator.com</h2>
+            <table style="width: 100%; border-collapse: collapse;">
+              ${row("Name", name)}
+              ${row("Email", `<a href="mailto:${email}">${email}</a>`)}
+              ${row("Phone", phone)}
+              ${row("Position", position)}
+              ${row("Experience", experience)}
+              ${row("License", license)}
+              ${row("Availability", availability)}
+              ${row("Location", location)}
+              ${row("About Themselves", message)}
+            </table>
+            <p style="margin-top: 16px; color: #6b7280; font-size: 14px;">
+              From <a href="https://www.thenycexterminator.com">TheNYCExterminator.com</a> &mdash; Job Application Form
+            </p>
+          </div>
+        `,
+      });
+    } else if (formType === "general-inquiry") {
       const { subject } = body;
       await getResend().emails.send({
         from: `The NYC Exterminator <${FROM_EMAIL}>`,
