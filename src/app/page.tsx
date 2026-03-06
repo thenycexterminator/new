@@ -154,7 +154,7 @@ export default function HomePage() {
                 and <Link href="/services" className="text-green-400 hover:text-green-300">{totalServices}+ pest types</Link>{" "}
                 across{" "}
                 <Link href="/areas" className="text-green-400 hover:text-green-300">{totalNeighborhoods}+ neighborhoods</Link>{" "}
-                in NYC, NJ, Long Island &amp; Westchester. NYS DEC licensed exterminators. Free pest inspections. Same-day pest control service available. Upfront pricing with no hidden fees.
+                in NYC, NJ, Long Island &amp; Westchester. Services starting at only <strong className="text-white">$49</strong>. NYS DEC licensed exterminators. Free pest inspections. Same-day pest control service available. Upfront pricing with no hidden fees.
               </p>
 
               <CTAGroup variant="hero" />
