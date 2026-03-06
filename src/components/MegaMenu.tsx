@@ -192,7 +192,7 @@ export default function MegaMenu({ categories, phone }: MegaMenuProps) {
       </div>
 
       {mobileOpen && (
-        <div className="fixed inset-0 z-[100] flex flex-col bg-[#0A0A0A] lg:hidden">
+        <div className="fixed inset-0 z-[9999] flex flex-col bg-[#0A0A0A] lg:hidden" style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0 }}>
           {/* Mobile header */}
           <div className="flex items-center justify-between border-b border-white/[0.06] px-5 py-4">
             <Link
