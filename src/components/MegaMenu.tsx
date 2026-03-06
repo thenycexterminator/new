@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import { createPortal } from "react-dom";
 import Link from "next/link";
 
 interface MegaMenuProps {
@@ -191,8 +192,8 @@ export default function MegaMenu({ categories, phone }: MegaMenuProps) {
         </button>
       </div>
 
-      {mobileOpen && (
-        <div className="fixed inset-0 z-[9999] flex flex-col bg-[#0A0A0A] lg:hidden" style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0 }}>
+      {mobileOpen && createPortal(
+        <div className="fixed inset-0 z-[9999] flex flex-col bg-[#0A0A0A] lg:hidden">
           {/* Mobile header */}
           <div className="flex items-center justify-between border-b border-white/[0.06] px-5 py-4">
             <Link
@@ -314,7 +315,7 @@ export default function MegaMenu({ categories, phone }: MegaMenuProps) {
             </Link>
           </div>
         </div>
-      )}
+      , document.body)}
     </div>
   );
 }
