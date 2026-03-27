@@ -113,6 +113,17 @@ export default function Footer() {
               The NYC SEO
             </a>
           </p>
+          <p className="mt-2 text-[11px] text-zinc-700">
+            Built and managed by{" "}
+            <a
+              href="https://www.fullloopcrm.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-zinc-500 hover:text-white"
+            >
+              Full Loop CRM
+            </a>
+          </p>
         </div>
       </div>
     </footer>
