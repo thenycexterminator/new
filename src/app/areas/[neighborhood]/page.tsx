@@ -17,6 +17,7 @@ import {
   getLocalBusinessSchemaGlobal,
   PHONE,
   SITE_URL,
+  SITE_NAME,
 } from "@/lib/seo";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import CTAGroup from "@/components/CTAGroup";
@@ -96,11 +97,46 @@ export default async function NeighborhoodHubPage({ params }: PageProps) {
     },
   };
 
+  const jobPostingSchema = {
+    "@context": "https://schema.org",
+    "@type": "JobPosting",
+    title: `Pest Control Technician — ${neighborhood.name}`,
+    description: `Licensed pest control technician and exterminator position serving ${location}. Full-time, competitive pay, benefits included. Join ${SITE_NAME}.`,
+    datePosted: "2026-04-01",
+    validThrough: "2027-04-01",
+    employmentType: "FULL_TIME",
+    hiringOrganization: {
+      "@type": "Organization",
+      name: SITE_NAME,
+      sameAs: SITE_URL,
+    },
+    jobLocation: {
+      "@type": "Place",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: neighborhood.name,
+        addressRegion: neighborhood.region === "New Jersey" ? "NJ" : "NY",
+        addressCountry: "US",
+      },
+    },
+    baseSalary: {
+      "@type": "MonetaryAmount",
+      currency: "USD",
+      value: {
+        "@type": "QuantitativeValue",
+        minValue: 45000,
+        maxValue: 85000,
+        unitText: "YEAR",
+      },
+    },
+  };
+
   return (
     <div className="text-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jobPostingSchema) }} />
 
       {/* ── HERO ── */}
       <section className="bg-[#0A0A0A] pb-20 pt-8">

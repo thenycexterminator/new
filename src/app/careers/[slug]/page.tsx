@@ -87,8 +87,8 @@ export default async function NeighborhoodCareersPage({ params }: PageProps) {
     "@type": "JobPosting",
     title: `Pest Control Technician — ${neighborhood.name}`,
     description: `Licensed pest control technician and exterminator position serving ${location}. Full-time, competitive pay, benefits included. Join ${SITE_NAME}.`,
-    datePosted: "2025-01-01",
-    validThrough: "2026-12-31",
+    datePosted: "2026-04-01",
+    validThrough: "2027-04-01",
     employmentType: "FULL_TIME",
     hiringOrganization: {
       "@type": "Organization",
