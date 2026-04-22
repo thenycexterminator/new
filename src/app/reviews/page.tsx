@@ -503,34 +503,14 @@ export default function ReviewsPage() {
     { name: "Reviews", url: "/reviews" },
   ]);
 
-  const aggregateRatingSchema = {
-    "@context": "https://schema.org",
-    "@type": "PestControlService",
-    name: SITE_NAME,
-    url: SITE_URL,
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.9",
-      bestRating: "5",
-      worstRating: "1",
-      ratingCount: "2847",
-      reviewCount: "2847",
-    },
-    review: reviews.slice(0, 10).map((r) => ({
-      "@type": "Review",
-      author: {
-        "@type": "Person",
-        name: r.name,
-      },
-      datePublished: r.date,
-      reviewRating: {
-        "@type": "Rating",
-        ratingValue: String(r.rating),
-        bestRating: "5",
-      },
-      reviewBody: r.text,
-    })),
-  };
+  // Note: previously emitted an aggregateRatingSchema with inline Review[] under
+  // PestControlService. Google rejected it ("Invalid object type for field
+  // <parent_node>") because (1) Review snippets nested inside a LocalBusiness
+  // subtype aren't valid for rich results, and (2) self-serving reviews
+  // (business publishing reviews about itself) have been disallowed since
+  // 2019. Removed entirely. Reviews stay as visible page content for SEO and
+  // user trust signal; aggregateRating belongs on Google Business Profile,
+  // not in our own JSON-LD.
 
   return (
     <div>
@@ -538,12 +518,6 @@ export default function ReviewsPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(breadcrumbSchema),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(aggregateRatingSchema),
         }}
       />
       <script
