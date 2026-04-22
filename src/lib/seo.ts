@@ -141,45 +141,26 @@ export function getWebsiteSchema() {
   };
 }
 
-export function getOrganizationSchema() {
-  return {
-    "@context": "https://schema.org",
-    "@type": "PestControlService",
-    name: SITE_NAME,
-    url: SITE_URL,
-    telephone: PHONE,
-    email: EMAIL,
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: ADDRESS.street,
-      addressLocality: ADDRESS.city,
-      addressRegion: ADDRESS.state,
-      postalCode: ADDRESS.zip,
-      addressCountry: "US",
-    },
-    areaServed: [
-      { "@type": "City", name: "New York" },
-      { "@type": "State", name: "New Jersey" },
-      { "@type": "Place", name: "Long Island" },
-      { "@type": "Place", name: "Westchester" },
-    ],
-    sameAs: ["https://www.consortiumnyc.com"],
-    parentOrganization: {
-      "@type": "Organization",
-      name: "Consortium NYC",
-      url: "https://www.consortiumnyc.com",
-    },
-  };
-}
-
+// Single canonical LocalBusiness schema. Used once per page (in layout.tsx).
+// Combines what was previously split across getOrganizationSchema and
+// getLocalBusinessSchemaGlobal — emitting both produced duplicate-type
+// warnings in Google Search Console. Now there's one source of truth.
+//
+// Includes every Google-required field for LocalBusiness rich results:
+// name, address, telephone, image, priceRange. Plus opening hours, geo,
+// areaServed, parentOrganization, and sameAs for fuller knowledge graph
+// coverage.
 export function getLocalBusinessSchemaGlobal() {
   return {
     "@context": "https://schema.org",
     "@type": "PestControlService",
+    "@id": `${SITE_URL}#business`,
     name: SITE_NAME,
     url: SITE_URL,
     telephone: PHONE,
     email: EMAIL,
+    image: `${SITE_URL}/icon.svg`,
+    priceRange: "$125-$3,000",
     address: {
       "@type": "PostalAddress",
       streetAddress: ADDRESS.street,
@@ -190,9 +171,15 @@ export function getLocalBusinessSchemaGlobal() {
     },
     geo: {
       "@type": "GeoCoordinates",
-      latitude: 40.7580,
+      latitude: 40.758,
       longitude: -73.9855,
     },
+    areaServed: [
+      { "@type": "City", name: "New York" },
+      { "@type": "State", name: "New Jersey" },
+      { "@type": "Place", name: "Long Island" },
+      { "@type": "Place", name: "Westchester" },
+    ],
     openingHoursSpecification: [
       {
         "@type": "OpeningHoursSpecification",
@@ -213,8 +200,20 @@ export function getLocalBusinessSchemaGlobal() {
         closes: "17:00",
       },
     ],
-    priceRange: "$125-$3,000",
+    sameAs: ["https://www.consortiumnyc.com"],
+    parentOrganization: {
+      "@type": "Organization",
+      name: "Consortium NYC",
+      url: "https://www.consortiumnyc.com",
+    },
   };
 }
+
+// Backwards-compat alias for callsites that still import the old name.
+// Both names now return the SAME canonical object so even if a page
+// accidentally emits both, JSON.stringify produces identical scripts
+// — but the right fix (done in this pass) is to call neither at the
+// page level since layout.tsx already emits this once for the whole site.
+export const getOrganizationSchema = getLocalBusinessSchemaGlobal;
 
 export { SITE_NAME, SITE_URL, PHONE, EMAIL, ADDRESS };

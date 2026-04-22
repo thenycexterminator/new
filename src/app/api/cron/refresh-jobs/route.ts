@@ -28,10 +28,15 @@ export async function GET(request: Request) {
 
   revalidatePath("/areas/[neighborhood]", "page");
   revalidatePath("/careers/[slug]", "page");
+  revalidatePath("/sitemap.xml");
 
   return NextResponse.json({
     revalidated: true,
-    paths: ["/areas/[neighborhood]", "/careers/[slug]"],
+    paths: [
+      "/areas/[neighborhood]",
+      "/careers/[slug]",
+      "/sitemap.xml",
+    ],
     at: new Date().toISOString(),
   });
 }

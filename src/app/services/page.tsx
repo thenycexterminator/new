@@ -9,7 +9,7 @@ import {
 } from "@/lib/data";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import CTAGroup from "@/components/CTAGroup";
-import { SITE_URL, PHONE, getBreadcrumbSchema, getOrganizationSchema } from "@/lib/seo";
+import { SITE_URL, PHONE, getBreadcrumbSchema } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "30+ NYC Pest Control & Exterminator Services | Browse All Treatments",
@@ -59,7 +59,6 @@ export default function ServicesPage() {
   return (
     <div className="text-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(getOrganizationSchema()) }} />
 
       {/* ── HERO ── */}
       <section className="bg-[#0A0A0A] pb-20 pt-8">

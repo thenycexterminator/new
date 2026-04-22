@@ -14,7 +14,6 @@ import {
   getNeighborhoodHubMeta,
   getFAQPageSchema,
   getBreadcrumbSchema,
-  getLocalBusinessSchemaGlobal,
   PHONE,
   SITE_URL,
   SITE_NAME,
@@ -93,13 +92,8 @@ export default async function NeighborhoodHubPage({ params }: PageProps) {
     { name: "Service Areas", url: "/areas" },
     { name: neighborhood.name, url: `/areas/${neighborhood.slug}` },
   ]);
-  const localBusinessSchema = {
-    ...getLocalBusinessSchemaGlobal(),
-    areaServed: {
-      "@type": "Place",
-      name: location,
-    },
-  };
+  // LocalBusiness schema emitted globally in layout.tsx — removed page-level
+  // duplicate to avoid Google's duplicate-type warnings.
 
   const { datePosted, validThrough } = getJobDates();
   const jobPostingSchema = {
@@ -140,7 +134,6 @@ export default async function NeighborhoodHubPage({ params }: PageProps) {
     <div className="text-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jobPostingSchema) }} />
 
       {/* ── HERO ── */}

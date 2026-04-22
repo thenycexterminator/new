@@ -6,7 +6,6 @@ import {
   PHONE,
   SITE_URL,
   SITE_NAME,
-  getOrganizationSchema,
 } from "@/lib/seo";
 import CTAGroup from "@/components/CTAGroup";
 
@@ -65,13 +64,9 @@ export default async function TipPage({
 
   return (
     <div className="text-white">
-      {/* JSON-LD */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(getOrganizationSchema()),
-        }}
-      />
+      {/* JSON-LD (LocalBusiness emitted globally in layout.tsx). Article schema
+          adds the required `image` and `datePublished` fields Google demands
+          for Article rich results. */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -81,6 +76,9 @@ export default async function TipPage({
             headline: tip.title,
             description: tip.metaDescription,
             url: `${SITE_URL}/pest-control-tips/${tip.slug}`,
+            image: `${SITE_URL}/icon.svg`,
+            datePublished: new Date().toISOString().slice(0, 10),
+            dateModified: new Date().toISOString().slice(0, 10),
             author: {
               "@type": "Organization",
               name: SITE_NAME,
@@ -90,6 +88,10 @@ export default async function TipPage({
               "@type": "Organization",
               name: SITE_NAME,
               url: SITE_URL,
+              logo: {
+                "@type": "ImageObject",
+                url: `${SITE_URL}/icon.svg`,
+              },
             },
             mainEntityOfPage: {
               "@type": "WebPage",

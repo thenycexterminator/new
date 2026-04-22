@@ -10,6 +10,12 @@ import { SITE_URL } from "@/lib/seo";
 
 const MAX_URLS = 49999;
 
+// Regenerate the sitemap every 7 days so that <lastmod> stays in sync with
+// our weekly JobPosting refresh (cron in vercel.json revalidates job pages
+// + this sitemap path together). Without this the sitemap freezes at build
+// time and Google won't know to re-crawl the refreshed pages.
+export const revalidate = 604800;
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const services = getAllServices();
   const neighborhoods = getAllNeighborhoods();
@@ -129,7 +135,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const careersPages: MetadataRoute.Sitemap = neighborhoods.map((n) => ({
     url: `${SITE_URL}/careers/${n.slug}-exterminator-jobs`,
     lastModified: new Date(),
-    changeFrequency: "monthly" as const,
+    // Bumped from "monthly" to "weekly" to match the cron-driven JobPosting
+    // refresh cadence. Tells Google these pages change every 7 days.
+    changeFrequency: "weekly" as const,
     priority: 0.5,
   }));
 

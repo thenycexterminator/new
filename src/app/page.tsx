@@ -13,9 +13,6 @@ import {
   SITE_NAME,
   EMAIL,
   ADDRESS,
-  getOrganizationSchema,
-  getWebsiteSchema,
-  getLocalBusinessSchemaGlobal,
   getFAQPageSchema,
 } from "@/lib/seo";
 import CTAGroup from "@/components/CTAGroup";
@@ -99,25 +96,7 @@ export default function HomePage() {
 
   return (
     <div className="text-white">
-      {/* JSON-LD Schemas */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(getOrganizationSchema()),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(getWebsiteSchema()),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(getLocalBusinessSchemaGlobal()),
-        }}
-      />
+      {/* JSON-LD Schemas (LocalBusiness + WebSite emitted once globally in layout.tsx) */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

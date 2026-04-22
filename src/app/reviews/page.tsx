@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { getAllServices } from "@/lib/data";
 import { PHONE, SITE_URL, SITE_NAME } from "@/lib/seo";
-import { getBreadcrumbSchema, getLocalBusinessSchemaGlobal } from "@/lib/seo";
+import { getBreadcrumbSchema } from "@/lib/seo";
 import CTAGroup from "@/components/CTAGroup";
 
 export const metadata: Metadata = {
@@ -518,12 +518,6 @@ export default function ReviewsPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(breadcrumbSchema),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(getLocalBusinessSchemaGlobal()),
         }}
       />
 

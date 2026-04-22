@@ -6,7 +6,6 @@ import {
   SITE_URL,
   SITE_NAME,
   ADDRESS,
-  getOrganizationSchema,
   getFAQPageSchema,
 } from "@/lib/seo";
 import CTAGroup from "@/components/CTAGroup";
@@ -66,13 +65,7 @@ export default function PestControlTipsPage() {
 
   return (
     <div className="text-white">
-      {/* JSON-LD */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(getOrganizationSchema()),
-        }}
-      />
+      {/* JSON-LD (LocalBusiness emitted globally in layout.tsx) */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
