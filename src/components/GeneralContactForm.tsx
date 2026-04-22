@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { track } from "@vercel/analytics";
 
 export default function GeneralContactForm() {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
@@ -30,6 +31,10 @@ export default function GeneralContactForm() {
 
       if (res.ok) {
         setStatus("sent");
+        track("lead_submitted", {
+          form: "general-inquiry",
+          subject: data.subject || "none",
+        });
         form.reset();
       } else {
         setStatus("error");

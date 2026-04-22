@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { track } from "@vercel/analytics";
 
 interface JobApplicationFormProps {
   position?: string;
@@ -42,6 +43,11 @@ export default function JobApplicationForm({
 
       if (res.ok) {
         setStatus("sent");
+        track("lead_submitted", {
+          form: "job-application",
+          position: data.position || "unspecified",
+          neighborhood: neighborhood || data.location || "unspecified",
+        });
         form.reset();
       } else {
         setStatus("error");

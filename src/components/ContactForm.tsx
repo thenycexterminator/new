@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { track } from "@vercel/analytics";
 
 interface ContactFormProps {
   service?: string;
@@ -44,6 +45,12 @@ export default function ContactForm({
 
       if (res.ok) {
         setStatus("sent");
+        track("lead_submitted", {
+          form: "service-quote",
+          service: service || data.pestType || "general",
+          neighborhood: neighborhood || data.location || "unspecified",
+          urgency: data.urgency || "unspecified",
+        });
         form.reset();
       } else {
         setStatus("error");

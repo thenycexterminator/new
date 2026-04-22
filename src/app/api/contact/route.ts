@@ -95,6 +95,20 @@ export async function POST(req: NextRequest) {
       });
     }
 
+    // Structured log line for lead-counting via Vercel Logs (search "LEAD ").
+    // Format is grep-friendly so you can pipe Vercel log exports through
+    // `grep "^LEAD " | wc -l` to get a true count without needing a database.
+    const safeBody = { ...body } as Record<string, unknown>;
+    delete safeBody.message; // strip free-text body from logs (PII / size)
+    console.log(`LEAD ${JSON.stringify({
+      at: new Date().toISOString(),
+      type: formType || "service-quote",
+      name,
+      email,
+      phone,
+      meta: safeBody,
+    })}`);
+
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error("Contact form error:", error);
