@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
+import { getSupabaseAdmin } from "@/lib/supabase-server";
 
 function getResend() {
   return new Resend(process.env.RESEND_API_KEY);
@@ -8,10 +9,42 @@ function getResend() {
 const NOTIFY_EMAIL = process.env.NOTIFY_EMAIL || "thenycexterminator@gmail.com";
 const FROM_EMAIL = process.env.FROM_EMAIL || "hello@thenycexterminator.com";
 
+async function persistLead(params: {
+  form_type: string;
+  name: string;
+  email: string;
+  phone?: string;
+  message?: string;
+  meta: Record<string, unknown>;
+  session_id?: string | null;
+  path?: string | null;
+  user_agent?: string | null;
+}) {
+  const supa = getSupabaseAdmin();
+  if (!supa) return;
+  try {
+    await supa.from("leads").insert({
+      form_type: params.form_type,
+      name: params.name,
+      email: params.email,
+      phone: params.phone || null,
+      message: params.message || null,
+      meta: params.meta,
+      session_id: params.session_id || null,
+      path: params.path || null,
+      user_agent: params.user_agent || null,
+    });
+  } catch (err) {
+    console.error("Failed to persist lead to Supabase:", err);
+  }
+}
+
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-    const { name, email, phone, message, formType } = body;
+    const { name, email, phone, message, formType, session_id } = body;
+    const path = req.headers.get("referer") || null;
+    const userAgent = req.headers.get("user-agent") || null;
 
     if (!name || !email || !message) {
       return NextResponse.json(
@@ -22,6 +55,17 @@ export async function POST(req: NextRequest) {
 
     if (formType === "job-application") {
       const { position, experience, license, availability, location } = body;
+      await persistLead({
+        form_type: "job-application",
+        name,
+        email,
+        phone,
+        message,
+        meta: { position, experience, license, availability, location },
+        session_id,
+        path,
+        user_agent: userAgent,
+      });
       await getResend().emails.send({
         from: `The NYC Exterminator <${FROM_EMAIL}>`,
         to: NOTIFY_EMAIL,
@@ -48,6 +92,17 @@ export async function POST(req: NextRequest) {
       });
     } else if (formType === "general-inquiry") {
       const { subject } = body;
+      await persistLead({
+        form_type: "general-inquiry",
+        name,
+        email,
+        phone,
+        message,
+        meta: { subject },
+        session_id,
+        path,
+        user_agent: userAgent,
+      });
       await getResend().emails.send({
         from: `The NYC Exterminator <${FROM_EMAIL}>`,
         to: NOTIFY_EMAIL,
@@ -70,6 +125,17 @@ export async function POST(req: NextRequest) {
       });
     } else {
       const { pestType, propertyType, location, urgency } = body;
+      await persistLead({
+        form_type: "service-quote",
+        name,
+        email,
+        phone,
+        message,
+        meta: { pestType, propertyType, location, urgency },
+        session_id,
+        path,
+        user_agent: userAgent,
+      });
       await getResend().emails.send({
         from: `The NYC Exterminator <${FROM_EMAIL}>`,
         to: NOTIFY_EMAIL,

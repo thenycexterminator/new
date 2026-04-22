@@ -1,12 +1,43 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { track } from "@vercel/analytics";
+import { track as localTrack, getSessionId } from "@/lib/tracker";
 
 export default function GeneralContactForm() {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
     "idle"
   );
+  const openedRef = useRef(false);
+  const submittedRef = useRef(false);
+  const lastFieldRef = useRef<string | undefined>(undefined);
+
+  useEffect(() => {
+    if (!openedRef.current) {
+      openedRef.current = true;
+      localTrack.formOpen("general-inquiry");
+    }
+    const onFocus = (e: FocusEvent) => {
+      const t = e.target as HTMLElement | null;
+      if (t && (t.tagName === "INPUT" || t.tagName === "SELECT" || t.tagName === "TEXTAREA")) {
+        lastFieldRef.current = (t as HTMLInputElement).name;
+      }
+    };
+    const onBeforeUnload = () => {
+      if (openedRef.current && !submittedRef.current) {
+        localTrack.formAbandon("general-inquiry", lastFieldRef.current);
+      }
+    };
+    document.addEventListener("focusin", onFocus);
+    window.addEventListener("beforeunload", onBeforeUnload);
+    return () => {
+      document.removeEventListener("focusin", onFocus);
+      window.removeEventListener("beforeunload", onBeforeUnload);
+      if (openedRef.current && !submittedRef.current) {
+        localTrack.formAbandon("general-inquiry", lastFieldRef.current);
+      }
+    };
+  }, []);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -20,6 +51,7 @@ export default function GeneralContactForm() {
       subject: (form.elements.namedItem("subject") as HTMLInputElement).value,
       message: (form.elements.namedItem("message") as HTMLTextAreaElement).value,
       formType: "general-inquiry",
+      session_id: getSessionId(),
     };
 
     try {
@@ -31,16 +63,20 @@ export default function GeneralContactForm() {
 
       if (res.ok) {
         setStatus("sent");
+        submittedRef.current = true;
         track("lead_submitted", {
           form: "general-inquiry",
           subject: data.subject || "none",
         });
+        localTrack.formSuccess("general-inquiry", { subject: data.subject });
         form.reset();
       } else {
         setStatus("error");
+        localTrack.formError("general-inquiry", { status: res.status });
       }
     } catch {
       setStatus("error");
+      localTrack.formError("general-inquiry", { reason: "network" });
     }
   }
 

@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { track } from "@vercel/analytics";
+import { track as localTrack, getSessionId } from "@/lib/tracker";
 
 interface JobApplicationFormProps {
   position?: string;
@@ -15,6 +16,36 @@ export default function JobApplicationForm({
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
     "idle"
   );
+  const openedRef = useRef(false);
+  const submittedRef = useRef(false);
+  const lastFieldRef = useRef<string | undefined>(undefined);
+
+  useEffect(() => {
+    if (!openedRef.current) {
+      openedRef.current = true;
+      localTrack.formOpen("job-application");
+    }
+    const onFocus = (e: FocusEvent) => {
+      const t = e.target as HTMLElement | null;
+      if (t && (t.tagName === "INPUT" || t.tagName === "SELECT" || t.tagName === "TEXTAREA")) {
+        lastFieldRef.current = (t as HTMLInputElement).name;
+      }
+    };
+    const onBeforeUnload = () => {
+      if (openedRef.current && !submittedRef.current) {
+        localTrack.formAbandon("job-application", lastFieldRef.current);
+      }
+    };
+    document.addEventListener("focusin", onFocus);
+    window.addEventListener("beforeunload", onBeforeUnload);
+    return () => {
+      document.removeEventListener("focusin", onFocus);
+      window.removeEventListener("beforeunload", onBeforeUnload);
+      if (openedRef.current && !submittedRef.current) {
+        localTrack.formAbandon("job-application", lastFieldRef.current);
+      }
+    };
+  }, []);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -32,6 +63,7 @@ export default function JobApplicationForm({
       availability: (form.elements.namedItem("availability") as HTMLSelectElement).value,
       location: (form.elements.namedItem("location") as HTMLInputElement).value,
       message: (form.elements.namedItem("message") as HTMLTextAreaElement).value,
+      session_id: getSessionId(),
     };
 
     try {
@@ -43,17 +75,25 @@ export default function JobApplicationForm({
 
       if (res.ok) {
         setStatus("sent");
+        submittedRef.current = true;
         track("lead_submitted", {
           form: "job-application",
           position: data.position || "unspecified",
           neighborhood: neighborhood || data.location || "unspecified",
         });
+        localTrack.formSuccess("job-application", {
+          position: data.position,
+          experience: data.experience,
+          license: data.license,
+        });
         form.reset();
       } else {
         setStatus("error");
+        localTrack.formError("job-application", { status: res.status });
       }
     } catch {
       setStatus("error");
+      localTrack.formError("job-application", { reason: "network" });
     }
   }
 

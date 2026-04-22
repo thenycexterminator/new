@@ -73,6 +73,8 @@ export default function CTAGroup({ variant, title, subtitle }: CTAGroupProps) {
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
           <a
             href={`sms:${phonePlain}`}
+            data-cta="text-us"
+            data-cta-location={`cta-${variant}`}
             className="group inline-flex items-center justify-center gap-2 rounded-xl bg-green-600 px-7 py-3.5 text-sm font-bold text-white shadow-lg shadow-green-600/25 transition-all hover:bg-green-500 hover:shadow-green-500/30 hover:-translate-y-0.5"
           >
             <SmsIcon />
@@ -80,6 +82,8 @@ export default function CTAGroup({ variant, title, subtitle }: CTAGroupProps) {
           </a>
           <a
             href={`tel:${phonePlain}`}
+            data-cta="call-us"
+            data-cta-location={`cta-${variant}`}
             className="group inline-flex items-center justify-center gap-2 rounded-xl border border-zinc-700 bg-white/5 px-7 py-3.5 text-sm font-bold text-white backdrop-blur transition-all hover:border-zinc-500 hover:bg-white/10 hover:-translate-y-0.5"
           >
             <PhoneIcon />
@@ -87,6 +91,8 @@ export default function CTAGroup({ variant, title, subtitle }: CTAGroupProps) {
           </a>
           <Link
             href="/book-exterminator-today"
+            data-cta="book-yourself"
+            data-cta-location={`cta-${variant}`}
             className="group inline-flex items-center justify-center gap-2 rounded-xl px-7 py-3.5 text-sm font-bold text-green-400 transition-all hover:text-green-300 hover:-translate-y-0.5"
           >
             <CalendarIcon />
@@ -118,6 +124,8 @@ export default function CTAGroup({ variant, title, subtitle }: CTAGroupProps) {
         <div className="mt-6 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
           <a
             href={`sms:${phonePlain}`}
+            data-cta="text-us"
+            data-cta-location={`cta-${variant}`}
             className="group inline-flex items-center gap-2 rounded-xl bg-white px-7 py-3.5 text-lg font-bold text-green-700 shadow-lg shadow-black/10 transition-all hover:bg-green-50 hover:-translate-y-0.5"
           >
             <SmsIcon />
@@ -125,6 +133,8 @@ export default function CTAGroup({ variant, title, subtitle }: CTAGroupProps) {
           </a>
           <a
             href={`tel:${phonePlain}`}
+            data-cta="call-us"
+            data-cta-location={`cta-${variant}`}
             className="group inline-flex items-center gap-2 rounded-xl border-2 border-white px-7 py-3.5 text-lg font-bold text-white transition-all hover:bg-white/10 hover:-translate-y-0.5"
           >
             <PhoneIcon />
@@ -132,6 +142,8 @@ export default function CTAGroup({ variant, title, subtitle }: CTAGroupProps) {
           </a>
           <Link
             href="/book-exterminator-today"
+            data-cta="book-yourself"
+            data-cta-location={`cta-${variant}`}
             className="group inline-flex items-center gap-2 rounded-xl px-7 py-3.5 text-lg font-bold text-green-100 transition-all hover:text-white hover:-translate-y-0.5"
           >
             <CalendarIcon />

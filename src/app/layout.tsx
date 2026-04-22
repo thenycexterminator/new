@@ -1,10 +1,12 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
+import { Suspense } from "react";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Tracker from "@/components/Tracker";
 import { getOrganizationSchema, getWebsiteSchema, SITE_URL } from "@/lib/seo";
 
 const CLARITY_ID = process.env.NEXT_PUBLIC_CLARITY_ID ?? "";
@@ -103,6 +105,9 @@ export default function RootLayout({
         <Header />
         <main className="min-h-screen">{children}</main>
         <Footer />
+        <Suspense fallback={null}>
+          <Tracker />
+        </Suspense>
         <Analytics />
         <SpeedInsights />
         <script
