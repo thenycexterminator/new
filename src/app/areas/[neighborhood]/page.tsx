@@ -21,6 +21,10 @@ import {
 } from "@/lib/seo";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import CTAGroup from "@/components/CTAGroup";
+import { getJobDates } from "@/lib/jobDates";
+
+// Regenerate every 7 days so JobPosting `datePosted` stays fresh for Google.
+export const revalidate = 604800;
 
 interface PageProps {
   params: Promise<{ neighborhood: string }>;
@@ -97,13 +101,14 @@ export default async function NeighborhoodHubPage({ params }: PageProps) {
     },
   };
 
+  const { datePosted, validThrough } = getJobDates();
   const jobPostingSchema = {
     "@context": "https://schema.org",
     "@type": "JobPosting",
     title: `Pest Control Technician — ${neighborhood.name}`,
     description: `Licensed pest control technician and exterminator position serving ${location}. Full-time, competitive pay, benefits included. Join ${SITE_NAME}.`,
-    datePosted: "2026-04-01",
-    validThrough: "2027-04-01",
+    datePosted,
+    validThrough,
     employmentType: "FULL_TIME",
     hiringOrganization: {
       "@type": "Organization",

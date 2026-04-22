@@ -11,6 +11,12 @@ import { PHONE, SITE_URL, SITE_NAME, EMAIL } from "@/lib/seo";
 import { getBreadcrumbSchema } from "@/lib/seo";
 import CareersCTA from "@/components/CareersCTA";
 import JobApplicationForm from "@/components/JobApplicationForm";
+import { getJobDates } from "@/lib/jobDates";
+
+// Regenerate every 7 days so JobPosting `datePosted` stays fresh for Google.
+// Google considers postings stale ~180 days after datePosted; 7-day rolling
+// refresh keeps every page well within that window automatically.
+export const revalidate = 604800;
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -82,13 +88,14 @@ export default async function NeighborhoodCareersPage({ params }: PageProps) {
     },
   ]);
 
+  const { datePosted, validThrough } = getJobDates();
   const jobPostingSchema = {
     "@context": "https://schema.org",
     "@type": "JobPosting",
     title: `Pest Control Technician — ${neighborhood.name}`,
     description: `Licensed pest control technician and exterminator position serving ${location}. Full-time, competitive pay, benefits included. Join ${SITE_NAME}.`,
-    datePosted: "2026-04-01",
-    validThrough: "2027-04-01",
+    datePosted,
+    validThrough,
     employmentType: "FULL_TIME",
     hiringOrganization: {
       "@type": "Organization",
