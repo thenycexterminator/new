@@ -71,16 +71,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
-      url: `${SITE_URL}/quote-request`,
+      url: `${SITE_URL}/schedule-service`,
       lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${SITE_URL}/book-exterminator-today`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.9,
+      changeFrequency: "weekly",
+      priority: 0.95,
     },
     {
       url: `${SITE_URL}/careers`,

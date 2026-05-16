@@ -13,13 +13,13 @@ import { SITE_URL, getFAQPageSchema, getBreadcrumbSchema } from "@/lib/seo";
 export const metadata: Metadata = {
   title: "Pest Control in 280+ NYC Neighborhoods | All 5 Boroughs, NJ, LI & Westchester",
   description:
-    "Find licensed pest control and exterminator services in your NYC neighborhood. 280+ service areas across Manhattan, Brooklyn, Queens, Bronx, Staten Island, New Jersey, Long Island & Westchester. 30+ services, free inspections, same-day appointments. Pricing from $49. Text 212-202-8545.",
+    "Pest control in 280+ NYC-metro neighborhoods — $249/hr (fully inclusive — save money). The only NYC pest control service that bills fully inclusive hourly. Manhattan, Brooklyn, Queens, Bronx, Staten Island, NJ, Long Island & Westchester. 30+ services. Pay on completion. No contracts. Text 212-202-8545.",
   keywords:
     "pest control near me NYC, exterminator near me, pest control Manhattan, pest control Brooklyn, pest control Queens, exterminator Bronx, pest control NJ, Long Island exterminator, Westchester pest control",
   openGraph: {
     title: "Pest Control in 280+ NYC Neighborhoods | All 5 Boroughs, NJ, LI & Westchester",
     description:
-      "Find a licensed exterminator in your neighborhood. 280+ areas, 30+ services, pricing from $49. Text 212-202-8545.",
+      "Licensed exterminator in 280+ neighborhoods — $249/hr (fully inclusive — save money). The only NYC pest control service that bills fully inclusive hourly. 30+ services. Text 212-202-8545.",
     url: `${SITE_URL}/areas`,
     type: "website",
   },

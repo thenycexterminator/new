@@ -8,13 +8,13 @@ import { PHONE, SITE_URL, EMAIL, ADDRESS, getBreadcrumbSchema, getLocalBusinessS
 export const metadata: Metadata = {
   title: "About The NYC Exterminator | Licensed & Insured NYC Pest Control Company",
   description:
-    "Learn about The NYC Exterminator, a Consortium NYC company providing licensed, insured pest control and extermination across all 5 NYC boroughs, NJ, Long Island & Westchester. 30+ services, 280+ neighborhoods, pricing from $49. Meet our team, our approach, and why thousands of New Yorkers trust us. Text 212-202-8545.",
+    "Learn about The NYC Exterminator — $249/hr (fully inclusive — save money). The only NYC pest control service that bills fully inclusive hourly. Licensed, insured pest control across all 5 NYC boroughs, NJ, Long Island & Westchester. 30+ services, 280+ neighborhoods. Pay on completion. No contracts. Text 212-202-8545.",
   keywords:
     "about NYC exterminator, NYC pest control company, licensed exterminator NYC, insured pest control, Consortium NYC, pest control team NYC",
   openGraph: {
     title: "About The NYC Exterminator | Licensed & Insured NYC Pest Control Company",
     description:
-      "Licensed, insured pest control across NYC. 30+ services, 280+ neighborhoods, pricing from $49. Text 212-202-8545.",
+      "$249/hr (fully inclusive — save money). The only NYC pest control service that bills fully inclusive hourly. Licensed, insured. 30+ services, 280+ neighborhoods. Text 212-202-8545.",
     url: `${SITE_URL}/about`,
   },
   alternates: {
@@ -78,7 +78,7 @@ export default function AboutPage() {
               <Link href="/mouse-extermination" className="text-green-400 hover:text-green-300">mouse extermination</Link>,{" "}
               <Link href="/termite-treatment" className="text-green-400 hover:text-green-300">termite treatment</Link>, and dozens of other specialized pest control services.
               Whether you own a brownstone in Brooklyn, manage a high-rise in Manhattan, or run a restaurant in Queens, our exterminator team
-              is ready to protect your property with affordable, professional pest control starting at just $49.
+              is ready to protect your property with affordable, professional pest control $249/hour flat — fully inclusive.
             </p>
             <p className="mt-4 text-lg leading-8 text-zinc-300">
               We believe that every New Yorker deserves to live and work in a pest-free environment. That is why we have built the most comprehensive
@@ -106,7 +106,7 @@ export default function AboutPage() {
               paying exorbitant prices for mediocre exterminator services, or worse, ignoring pest problems because they could not
               find a reliable pest control company that fit their budget. We set out to change that by launching a pest control
               service with transparent{" "}
-              <Link href="/pricing" className="text-green-400 hover:text-green-300">pricing starting at just $49</Link>{" "}
+              <Link href="/pricing" className="text-green-400 hover:text-green-300">$249/hour flat — fully inclusive</Link>{" "}
               &mdash; no hidden fees, no bait-and-switch tactics, and no unnecessary upselling. From day one, our goal has been to
               make professional extermination services accessible to everyone, from single-room studio apartments to sprawling
               commercial facilities.
@@ -158,7 +158,7 @@ export default function AboutPage() {
               is just a phone call or text message away. If you have a pest problem, we want to be the first and last exterminator you
               ever need to call. Reach us anytime at{" "}
               <a href={`tel:${phonePlain}`} className="text-green-400 hover:text-green-300">{PHONE}</a> or{" "}
-              <Link href="/quote-request" className="text-green-400 hover:text-green-300">request a free quote online</Link>.
+              <Link href="/schedule-service" className="text-green-400 hover:text-green-300">request a free quote online</Link>.
             </p>
           </div>
         </div>
@@ -225,7 +225,7 @@ export default function AboutPage() {
                 which our exterminator assesses the scope of the infestation, identifies the pest species involved, and provides a written quote
                 that covers the full cost of treatment. The price you are quoted is the price you pay &mdash; period. We publish our{" "}
                 <Link href="/pricing" className="text-green-400 hover:text-green-300">pricing information</Link>{" "}
-                openly, with services starting at just $49, because we believe informed customers are happy customers. No hidden fees, no
+                openly, with services $249/hour flat — fully inclusive, because we believe informed customers are happy customers. No hidden fees, no
                 surprises, no pressure to purchase services you do not need.
               </p>
             </div>
@@ -494,7 +494,7 @@ export default function AboutPage() {
               especially for families and small business owners already dealing with New York&apos;s high cost of living. That is why
               we have structured our{" "}
               <Link href="/pricing" className="text-green-400 hover:text-green-300">pricing</Link>{" "}
-              to start at just $49 &mdash; making professional exterminator services accessible to households and businesses at every
+              to land at $249/hour flat — fully inclusive &mdash; making professional exterminator services accessible to households and businesses at every
               income level. We offer free inspections and free quotes on every job, so you never have to commit to a purchase before
               you know exactly what you are getting. We also offer flexible scheduling, including evenings and weekends, because we
               understand that not everyone can take time off work to wait for an exterminator. Our goal is to remove every barrier

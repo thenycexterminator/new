@@ -90,13 +90,13 @@ export default function CTAGroup({ variant, title, subtitle }: CTAGroupProps) {
             Call {PHONE}
           </a>
           <Link
-            href="/book-exterminator-today"
-            data-cta="book-yourself"
+            href="/schedule-service"
+            data-cta="schedule-service"
             data-cta-location={`cta-${variant}`}
             className="group inline-flex items-center justify-center gap-2 rounded-xl px-7 py-3.5 text-sm font-bold text-green-400 transition-all hover:text-green-300 hover:-translate-y-0.5"
           >
             <CalendarIcon />
-            Book Yourself
+            Schedule Service
           </Link>
         </div>
       </div>
@@ -141,13 +141,13 @@ export default function CTAGroup({ variant, title, subtitle }: CTAGroupProps) {
             Call {PHONE}
           </a>
           <Link
-            href="/book-exterminator-today"
-            data-cta="book-yourself"
+            href="/schedule-service"
+            data-cta="schedule-service"
             data-cta-location={`cta-${variant}`}
             className="group inline-flex items-center gap-2 rounded-xl px-7 py-3.5 text-lg font-bold text-green-100 transition-all hover:text-white hover:-translate-y-0.5"
           >
             <CalendarIcon />
-            Book Yourself
+            Schedule Service
           </Link>
         </div>
       </div>

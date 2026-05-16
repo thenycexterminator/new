@@ -8,13 +8,13 @@ import { getAllServices, getAllNeighborhoods } from "@/lib/data";
 export const metadata: Metadata = {
   title: "Contact NYC Exterminator | Call, Text, or Book Pest Control Today",
   description:
-    "Contact The NYC Exterminator for a free pest control inspection and quote. Call or text 212-202-8545. Same-day exterminator service across all 5 NYC boroughs, NJ, Long Island & Westchester. Licensed, insured, pricing from $49. We respond within minutes.",
+    "Contact The NYC Exterminator. Call or text 212-202-8545. $249/hr (fully inclusive — save money). The only NYC pest control service that bills fully inclusive hourly. Pay only when the job is done. No contracts. No deposits. No catches. Same-day service across all 5 NYC boroughs, NJ, Long Island & Westchester. We respond within minutes.",
   keywords:
     "contact exterminator NYC, call pest control NYC, text exterminator, NYC pest control phone number, book exterminator appointment, pest control near me, emergency exterminator contact",
   openGraph: {
     title: "Contact NYC Exterminator | Call, Text, or Book Pest Control Today",
     description:
-      "Contact The NYC Exterminator. Call or text 212-202-8545. Free inspection, same-day service, pricing from $49.",
+      "Contact The NYC Exterminator. Call or text 212-202-8545. $249/hr (fully inclusive — save money). The only NYC pest control service that bills fully inclusive hourly. Pay on completion.",
     url: `${SITE_URL}/contact`,
   },
   alternates: {
@@ -62,7 +62,7 @@ export default function ContactPage() {
         name: "Does The NYC Exterminator offer free pest control inspections?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Yes. Every new client receives a free, no-obligation pest control inspection. Our licensed exterminator will assess your property, identify the pest species, determine the severity of the infestation, and provide an upfront quote with pricing starting at $49.",
+          text: "Yes. Every new client receives a free, no-obligation pest control inspection. Our licensed exterminator will assess your property, identify the pest species, determine the severity of the infestation, and confirm the $249/hour flat rate — fully inclusive, no add-ons, no deposit, pay only on completion.",
         },
       },
       {
@@ -117,7 +117,7 @@ export default function ContactPage() {
             for the fastest response. We monitor texts around the clock and can
             start assessing your pest problem the moment you hit send. Include a
             photo if you can &mdash; it helps our exterminators identify the species
-            before we even arrive. With pest control pricing starting at $49 and
+            before we even arrive. With $249/hour flat, fully inclusive pricing and
             same-day exterminator service available across all five boroughs, there
             is no reason to wait another night with unwanted guests in your home
             or business.
@@ -142,7 +142,7 @@ export default function ContactPage() {
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-8 md:grid-cols-2">
             <Link
-              href="/quote-request"
+              href="/schedule-service"
               className="group rounded-xl border border-zinc-800 bg-[#141414] p-8 transition-colors hover:border-green-500"
             >
               <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-green-600/20 text-green-500">
@@ -164,7 +164,7 @@ export default function ContactPage() {
             </Link>
 
             <Link
-              href="/book-exterminator-today"
+              href="/schedule-service"
               className="group rounded-xl border border-zinc-800 bg-[#141414] p-8 transition-colors hover:border-green-500"
             >
               <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-green-600/20 text-green-500">
@@ -301,7 +301,7 @@ export default function ContactPage() {
                 <h3 className="text-xl font-semibold text-green-400">Online Quote Form</h3>
                 <p className="mt-2 text-zinc-300">
                   Fill out our{" "}
-                  <Link href="/quote-request" className="font-bold text-green-400 hover:text-green-300">
+                  <Link href="/schedule-service" className="font-bold text-green-400 hover:text-green-300">
                     free quote request form
                   </Link>{" "}
                   and a licensed exterminator will contact you within two hours to
@@ -309,7 +309,7 @@ export default function ContactPage() {
                   contact information, property type, pest type, and a description of
                   the problem. It takes less than two minutes to complete and ensures
                   we have all the information we need to prepare for your appointment.
-                  Pest control pricing starts at $49, and every quote comes with a free
+                  Our $249/hour flat, fully inclusive rate covers every service we offer, and every visit starts with a free
                   on-site inspection &mdash; no commitment required.
                 </p>
               </div>
@@ -382,7 +382,7 @@ export default function ContactPage() {
                 <p className="mt-2 text-zinc-300">
                   Whether you text us at {PHONE}, call our office, send an email to{" "}
                   {EMAIL}, or complete the{" "}
-                  <Link href="/quote-request" className="text-green-400 hover:text-green-300">
+                  <Link href="/schedule-service" className="text-green-400 hover:text-green-300">
                     online quote form
                   </Link>, your message goes directly to our pest control dispatch team.
                   There are no bots, no automated responses, and no third-party
@@ -433,7 +433,7 @@ export default function ContactPage() {
                   There is absolutely no cost for the inspection and no obligation to
                   proceed with treatment. We believe every property owner deserves to
                   know exactly what they are dealing with before spending a dollar.
-                  Pest control pricing starts at just $49, and we will provide your
+                  We charge $249/hour flat — fully inclusive — and we will provide your
                   exact quote after the inspection &mdash; before any work begins.
                 </p>
               </div>
@@ -600,7 +600,7 @@ export default function ContactPage() {
                 <Link href="/pricing" className="text-green-400 hover:text-green-300">
                   pest control pricing
                 </Link>{" "}
-                starts at $49 with no extra charge for same-day scheduling.
+                is $249/hour flat — same rate for same-day, after-hours, and weekend visits, no surcharges.
               </p>
             </div>
 
@@ -634,7 +634,7 @@ export default function ContactPage() {
                 treatment. We believe an informed client is the best client, and we
                 want you to understand exactly what you are dealing with before making
                 any decisions. If you do proceed, pest control pricing starts at just
-                $49 depending on the service.
+                $249/hour flat for every service — same rate regardless of pest type.
               </p>
             </div>
 
@@ -648,7 +648,7 @@ export default function ContactPage() {
                 every other type of commercial property. Commercial pest control
                 clients can contact us through any of our channels &mdash; text, call,
                 email, or the{" "}
-                <Link href="/quote-request" className="text-green-400 hover:text-green-300">
+                <Link href="/schedule-service" className="text-green-400 hover:text-green-300">
                   online form
                 </Link>. We understand the unique urgency of commercial pest problems,
                 especially for food service businesses facing NYC DOH regulations.
@@ -753,7 +753,7 @@ export default function ContactPage() {
             </h3>
             <p className="mt-3 text-zinc-400">
               Contact us about any of the following exterminator services &mdash;
-              pricing starts at $49:
+              we charge $249/hour flat, fully inclusive:
             </p>
             <div className="mt-4 flex flex-wrap gap-2">
               {services.slice(0, 12).map((service) => (
@@ -779,7 +779,7 @@ export default function ContactPage() {
           <div className="mt-8 grid gap-8 lg:grid-cols-2">
             <div className="space-y-5 text-zinc-300 leading-7">
               <p>
-                Choosing the right pest control company is one of the most important decisions a property owner or tenant can make. The wrong exterminator wastes your time and money with ineffective treatments that allow infestations to grow worse. At The NYC Exterminator, we&apos;ve built our reputation on doing the job right the first time — with licensed technicians, EPA-approved products, transparent pricing starting at just $49, and a satisfaction guarantee that means we come back at no charge if pests return between treatments.
+                Choosing the right pest control company is one of the most important decisions a property owner or tenant can make. The wrong exterminator wastes your time and money with ineffective treatments that allow infestations to grow worse. At The NYC Exterminator, we&apos;ve built our reputation on doing the job right the first time — with licensed technicians, EPA-approved products, transparent $249/hour flat pricing fully inclusive of products and follow-up, pay-on-completion (no deposit, no card on file), no contracts, and a satisfaction guarantee that means we come back at no charge if pests return.
               </p>
               <p>
                 Every exterminator on our team holds an active NYS DEC Commercial Pesticide Applicator license and undergoes continuous training in the latest pest control techniques, product innovations, and safety protocols. Our wildlife control specialists carry additional NYS DEC Nuisance Wildlife Control licenses for <Link href="/raccoon-removal" className="text-green-400 hover:text-green-300">raccoon removal</Link>, <Link href="/squirrel-removal" className="text-green-400 hover:text-green-300">squirrel removal</Link>, <Link href="/pigeon-control" className="text-green-400 hover:text-green-300">pigeon control</Link>, and <Link href="/bat-removal" className="text-green-400 hover:text-green-300">bat removal</Link>. We maintain comprehensive general liability insurance on every job and provide documentation upon request for property managers, co-op boards, and commercial tenants.

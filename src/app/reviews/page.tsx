@@ -6,15 +6,15 @@ import { getBreadcrumbSchema } from "@/lib/seo";
 import CTAGroup from "@/components/CTAGroup";
 
 export const metadata: Metadata = {
-  title: "NYC Exterminator Reviews | 2,847+ Verified 5-Star Pest Control Ratings",
+  title: "NYC Exterminator Reviews | $249/hr Fully Inclusive | 2,847+ Verified 5-Star Ratings",
   description:
-    "Read 2,847+ verified pest control reviews from NYC homeowners, renters, and businesses. 4.9/5 average rating. See what real customers say about cockroach, bed bug, rat, mouse, and termite extermination results. Licensed exterminators across all 5 boroughs, NJ, Long Island & Westchester. Text 212-202-8545.",
+    "2,847+ verified reviews. 4.9/5 average rating. $249/hr (fully inclusive — save money). The only NYC pest control service that bills fully inclusive hourly. See what NYC says about our cockroach, bed bug, rat, mouse, and termite work. All 5 boroughs, NJ, Long Island & Westchester. Text 212-202-8545.",
   keywords:
     "NYC exterminator reviews, pest control reviews NYC, best exterminator NYC, 5-star pest control, bed bug treatment reviews, cockroach exterminator reviews, rat exterminator reviews, pest control testimonials",
   openGraph: {
-    title: "NYC Exterminator Reviews | 2,847+ Verified 5-Star Pest Control Ratings",
+    title: "NYC Exterminator Reviews | $249/hr Fully Inclusive | 2,847+ Verified 5-Star Ratings",
     description:
-      "2,847+ verified reviews. 4.9/5 average rating. See what NYC says about our pest control. Text 212-202-8545.",
+      "2,847+ verified reviews. 4.9/5 average. $249/hr (fully inclusive — save money). The only NYC pest control service that bills fully inclusive hourly. Text 212-202-8545.",
     url: `${SITE_URL}/reviews`,
   },
   alternates: {
@@ -998,7 +998,7 @@ export default function ReviewsPage() {
                 pest control service that has earned us these reviews. Contact us
                 for a{" "}
                 <Link
-                  href="/quote-request"
+                  href="/schedule-service"
                   className="text-green-400 hover:text-green-300"
                 >
                   free quote
@@ -1097,7 +1097,7 @@ export default function ReviewsPage() {
               <p className="mt-2 text-sm leading-relaxed text-zinc-400">
                 When you call our office or{" "}
                 <Link
-                  href="/quote-request"
+                  href="/schedule-service"
                   className="text-green-400 hover:text-green-300"
                 >
                   submit a quote request
@@ -1180,7 +1180,7 @@ export default function ReviewsPage() {
                 </Link>{" "}
                 for general cost ranges, or{" "}
                 <Link
-                  href="/quote-request"
+                  href="/schedule-service"
                   className="text-green-400 hover:text-green-300"
                 >
                   request a custom quote
@@ -1362,7 +1362,7 @@ export default function ReviewsPage() {
               </Link>{" "}
               for transparent cost information, or{" "}
               <Link
-                href="/quote-request"
+                href="/schedule-service"
                 className="text-green-400 hover:text-green-300"
               >
                 request a free quote
@@ -1453,7 +1453,7 @@ export default function ReviewsPage() {
               <p>
                 Ready to experience five-star pest control for yourself?{" "}
                 <Link
-                  href="/quote-request"
+                  href="/schedule-service"
                   className="text-green-400 hover:text-green-300"
                 >
                   Request a free quote online

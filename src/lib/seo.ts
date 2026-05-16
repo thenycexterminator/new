@@ -15,8 +15,8 @@ export function getMoneyPageMeta(service: Service, neighborhood: Neighborhood) {
   const location = neighborhood.name === neighborhood.region
     ? neighborhood.name
     : `${neighborhood.name}, ${neighborhood.region}`;
-  const title = `${service.name} in ${neighborhood.name} | Licensed ${neighborhood.region} Exterminators`;
-  const description = `Professional ${service.name.toLowerCase()} in ${location}. ${service.priceRange}. Licensed & insured exterminators. Free inspection, upfront pricing, same-day service available. Serving ${neighborhood.name} and surrounding ${neighborhood.region} neighborhoods. Text 212-202-8545.`;
+  const title = `${service.name} in ${neighborhood.name} | $249/hr Fully Inclusive | The Only NYC Pest Control That Bills Hourly`;
+  const description = `${service.name} in ${location} — $249/hr (fully inclusive — save money). The only NYC pest control service that bills fully inclusive hourly. Labor, products, treatment, follow-up — all in the rate. Pay only when the job is done. No contracts, no deposits, no catches. Licensed & insured. Free inspection off the clock. Text 212-202-8545.`;
 
   return {
     title,
@@ -26,8 +26,8 @@ export function getMoneyPageMeta(service: Service, neighborhood: Neighborhood) {
 }
 
 export function getServiceHubMeta(service: Service) {
-  const title = `${service.name} NYC | Licensed Exterminators | Pricing & Same-Day Service`;
-  const description = `Professional ${service.name.toLowerCase()} across NYC, NJ, Long Island & Westchester. ${service.priceRange}. Free inspection, upfront quotes, satisfaction guarantee. Licensed & insured exterminators with same-day availability. Text 212-202-8545.`;
+  const title = `${service.name} NYC | $249/hr Fully Inclusive | The Only NYC Pest Control That Bills Hourly`;
+  const description = `${service.name} across NYC, NJ, Long Island & Westchester — $249/hr (fully inclusive — save money). The only NYC pest control service that bills fully inclusive hourly. Pay only when the job is done. No contracts. No deposits. No catches. Labor, products, treatment, follow-up — all in the rate. Licensed & insured. Text 212-202-8545.`;
 
   return {
     title,
@@ -37,8 +37,8 @@ export function getServiceHubMeta(service: Service) {
 }
 
 export function getNeighborhoodHubMeta(neighborhood: Neighborhood) {
-  const title = `Pest Control in ${neighborhood.name} | 30+ Services | ${neighborhood.region} Exterminators`;
-  const description = `Professional pest control and exterminator services in ${neighborhood.name}, ${neighborhood.region}. 30+ services including cockroach extermination, bed bug treatment, rat control, mouse removal, termite treatment & more. Free inspection, upfront pricing. Licensed & insured. Text 212-202-8545.`;
+  const title = `Pest Control in ${neighborhood.name} | $249/hr Fully Inclusive | The Only NYC Pest Control That Bills Hourly`;
+  const description = `Pest control & exterminator services in ${neighborhood.name}, ${neighborhood.region} — $249/hr (fully inclusive — save money). The only NYC pest control service that bills fully inclusive hourly. 30+ services. Pay only when the job is done. No contracts. No deposits. No catches. Free inspection off the clock. Text 212-202-8545.`;
 
   return {
     title,
@@ -160,7 +160,7 @@ export function getLocalBusinessSchemaGlobal() {
     telephone: PHONE,
     email: EMAIL,
     image: `${SITE_URL}/icon.svg`,
-    priceRange: "$125-$3,000",
+    priceRange: "$249/hr flat — fully inclusive",
     address: {
       "@type": "PostalAddress",
       streetAddress: ADDRESS.street,

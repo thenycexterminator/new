@@ -10,14 +10,14 @@ export const metadata: Metadata = {
   title:
     "Exterminator Jobs NYC | Now Hiring Pest Control Technicians | $45K-$95K+",
   description:
-    "Now hiring licensed exterminators, pest control technicians, wildlife control specialists, and commercial account managers across NYC, NJ, Long Island & Westchester. $45K-$95K+ pay, full benefits, paid training, company vehicle. Join NYC's fastest-growing pest control team. Text 212-202-8545 to apply.",
+    "Now hiring licensed exterminators, pest control technicians, wildlife specialists, and commercial account managers across NYC, NJ, Long Island & Westchester. $45K-$95K+ pay, full benefits, paid training, company vehicle. Join the team behind $249/hr (fully inclusive — save money) — The only NYC pest control service that bills fully inclusive hourly. Text 212-202-8545 to apply.",
   keywords:
     "exterminator jobs NYC, pest control technician jobs, hiring exterminators New York, pest control careers, wildlife control jobs NYC, commercial pest control jobs, exterminator salary NYC",
   openGraph: {
     title:
       "Exterminator Jobs NYC | Now Hiring Pest Control Technicians | $45K-$95K+",
     description:
-      "Now hiring pest control pros across NYC. $45K-$95K+ pay, full benefits, paid training, company vehicle. Text 212-202-8545 to apply.",
+      "Now hiring pest control pros across NYC. $45K-$95K+ pay, full benefits, paid training, company vehicle. Join The only NYC pest control service that bills fully inclusive hourly. Text 212-202-8545 to apply.",
     url: `${SITE_URL}/careers`,
   },
   alternates: {

@@ -82,7 +82,7 @@ export default function Footer() {
               <li><Link href="/faq" className="text-sm text-zinc-500 transition-colors hover:text-white">FAQ</Link></li>
               <li><Link href="/careers" className="text-sm text-zinc-500 transition-colors hover:text-white">Careers</Link></li>
               <li><Link href="/contact" className="text-sm text-zinc-500 transition-colors hover:text-white">Contact</Link></li>
-              <li><Link href="/book-exterminator-today" className="text-sm font-medium text-green-400 hover:text-green-300">Book Yourself &rarr;</Link></li>
+              <li><Link href="/schedule-service" className="text-sm font-medium text-green-400 hover:text-green-300">Schedule Service &rarr;</Link></li>
             </ul>
           </div>
         </div>

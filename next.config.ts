@@ -21,6 +21,20 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  async redirects() {
+    return [
+      {
+        source: "/book-exterminator-today",
+        destination: "/schedule-service",
+        permanent: true,
+      },
+      {
+        source: "/quote-request",
+        destination: "/schedule-service",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

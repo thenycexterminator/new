@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title:
     "NYC Pest Control FAQ | 40+ Exterminator Questions Answered by Licensed Pros",
   description:
-    "Get answers to 40+ frequently asked pest control and exterminator questions from licensed NYC professionals. Learn about cockroach, bed bug, rat, mouse, and termite treatment costs, timelines, preparation, guarantees, and more. Pricing from $49. Free inspections. Text 212-202-8545.",
+    "40+ FAQs about NYC pest control — costs, timelines, preparation, guarantees, and how the $249/hr (fully inclusive — save money) model works. The only NYC pest control service that bills fully inclusive hourly. Pay on completion. No contracts. Free inspections. Text 212-202-8545.",
   keywords:
     "pest control FAQ NYC, exterminator questions, how much does pest control cost NYC, bed bug treatment FAQ, cockroach extermination questions, rat exterminator FAQ, pest control preparation, exterminator guarantee NYC",
   openGraph: {
@@ -82,7 +82,7 @@ const faqCategories: FAQCategory[] = [
     items: [
       {
         q: "How much does pest control cost in NYC?",
-        a: "Pest control pricing in New York City varies depending on the type of pest, the severity of the infestation, the size and type of your property, and the treatment method required. At The NYC Exterminator, our services typically range from $125 for a basic general pest control treatment to $3,000 or more for comprehensive multi-room bed bug heat treatments or full-building rat exclusion programs. A standard cockroach extermination for a one-bedroom apartment generally falls between $150 and $400. Bed bug treatment ranges from $300 to $1,500 per room depending on the method used. Rat and mouse extermination typically costs $200 to $600, and termite treatment ranges from $500 to $2,500 depending on the scope. We always provide free, no-obligation quotes after inspecting your property so you know exactly what to expect before any work begins. Visit our pricing page for detailed breakdowns by service type and property size, or call us at 212-202-8545 for an immediate estimate.",
+        a: "We charge $249/hour flat — fully inclusive — for every pest service in NYC. That single rate covers labor, EPA-registered products, treatment methods, entry-point sealing, written plan, and the free re-treatment if pests return. No per-room fees, no chemical surcharges, no trip fees, no weekend rates. Most one-bedroom cockroach jobs take 45-60 minutes ($187-$249 all-in). Mouse exclusion typically runs 60-90 minutes ($249-$374). A whole-apartment bed bug heat treatment runs 3-4 hours ($747-$996). Bigger commercial jobs simply take more hours. You pay only on completion — no deposit, no card on file, no contract. We're NYC's only fully inclusive hourly exterminator pricing platform, built so you pay for the time your problem actually takes instead of a bloated flat-rate quote built around the worst case.",
       },
       {
         q: "Do you offer payment plans or financing for extermination services?",
@@ -94,7 +94,7 @@ const faqCategories: FAQCategory[] = [
       },
       {
         q: "Do you offer discounts for ongoing pest control maintenance plans?",
-        a: "Yes, The NYC Exterminator offers significant savings through our ongoing pest control maintenance plans, which are the most cost-effective way to keep your property pest-free year-round. Clients who sign up for quarterly, bi-monthly, or monthly service plans receive discounted per-visit rates compared to one-time treatments, plus they benefit from priority scheduling, routine preventive inspections, and unlimited re-treatments between visits if pests return. Monthly residential plans start at $50 to $125 per month depending on property size and location. These recurring pest control plans are especially popular with commercial clients such as restaurants, hotels, and property management companies that need consistent, documented protection against pests to satisfy health department requirements. Check our pricing page or call us at 212-202-8545 for details on our current maintenance plan options and promotional discounts.",
+        a: "We don't sell maintenance contracts. Every visit — one-off or recurring — is billed at the same $249/hour flat rate, fully inclusive, paid on completion. Commercial clients who want scheduled recurring visits for DOH-compliant documentation simply book each visit at $249/hour with no contract minimum. You decide when the next visit happens. No auto-renewals, no monthly minimums, nothing to cancel. Pay only for the hours actually used, in 15-minute increments after the first hour.",
       },
       {
         q: "Is pest control covered by renters or homeowners insurance in NYC?",
@@ -202,7 +202,7 @@ const faqCategories: FAQCategory[] = [
       },
       {
         q: "How much does bed bug treatment cost in NYC?",
-        a: "Bed bug treatment costs in NYC vary depending on the treatment method, the number of rooms affected, the severity of the infestation, and the size of your apartment or property. At The NYC Exterminator, chemical bed bug treatments typically range from $300 to $800 per room, while whole-room heat treatment — which is the most effective single-visit solution — ranges from $800 to $1,500 per room. A typical one-bedroom apartment heat treatment costs between $1,200 and $2,000. Multi-room and whole-apartment treatments are priced on a sliding scale that provides better per-room value for larger treatment areas. We always provide a detailed written quote after your free inspection so there are no surprises. It is important to invest in professional bed bug extermination rather than attempting DIY methods, which almost universally fail and allow the infestation to worsen and spread. Visit our pricing page for detailed bed bug treatment pricing or our bed bug treatment page for a full overview of our methods and what is included in each treatment package.",
+        a: "Bed bug treatment in NYC is billed at our $249/hour flat rate — fully inclusive of labor, EPA-registered products, heat treatment equipment, mattress encasements, and the free re-treatment if bugs return. A single-room chemical treatment typically runs 60-90 minutes ($249-$374). A whole one-bedroom apartment heat treatment runs 3-4 hours ($747-$996). Larger units take more hours, but the per-hour rate doesn't change. No per-room fees, no chemical surcharges, no trip fees. Free on-site inspection (off the clock) before the work begins. Pay on completion — no deposit, no card on file. The professional approach almost always costs less than failed DIY plus the eventual professional cleanup.",
       },
       {
         q: "What should I do if I find bed bugs in my hotel room or Airbnb in NYC?",
@@ -506,7 +506,7 @@ export default function FAQPage() {
                     </Link>
                     {" | "}
                     <Link
-                      href="/quote-request"
+                      href="/schedule-service"
                       className="text-green-400 hover:text-green-300"
                     >
                       Request a Quote
@@ -533,7 +533,7 @@ export default function FAQPage() {
                     </Link>
                     {" | "}
                     <Link
-                      href="/quote-request"
+                      href="/schedule-service"
                       className="text-green-400 hover:text-green-300"
                     >
                       Get a Free Quote
@@ -648,7 +648,7 @@ export default function FAQPage() {
                     </Link>
                     {" | "}
                     <Link
-                      href="/quote-request"
+                      href="/schedule-service"
                       className="text-green-400 hover:text-green-300"
                     >
                       Request an Inspection
@@ -788,7 +788,7 @@ export default function FAQPage() {
                 Contact Page
               </Link>
               <Link
-                href="/quote-request"
+                href="/schedule-service"
                 className="inline-flex items-center rounded-lg px-6 py-3 text-lg font-semibold text-green-400 hover:text-green-300"
               >
                 Request a Quote &rarr;

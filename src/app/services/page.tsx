@@ -14,13 +14,13 @@ import { SITE_URL, PHONE, getBreadcrumbSchema } from "@/lib/seo";
 export const metadata: Metadata = {
   title: "30+ NYC Pest Control & Exterminator Services | Browse All Treatments",
   description:
-    "Browse all 30+ professional pest control and exterminator services from The NYC Exterminator. Cockroach extermination, bed bug treatment, rat control, mouse removal, termite treatment, wildlife removal, commercial pest control & more. Licensed & insured across NYC, NJ, LI & Westchester. Pricing from $49. Text 212-202-8545.",
+    "30+ professional pest control services across NYC, NJ, LI & Westchester — $249/hr (fully inclusive — save money). The only NYC pest control service that bills fully inclusive hourly. Cockroaches, bed bugs, rats, mice, termites, wildlife, commercial & more. Pay on completion. No contracts. Text 212-202-8545.",
   keywords:
     "NYC pest control services, exterminator services NYC, cockroach extermination, bed bug treatment, rat exterminator, mouse exterminator, termite treatment, wildlife removal, commercial pest control, residential pest control NYC",
   openGraph: {
     title: "30+ NYC Pest Control & Exterminator Services | Browse All Treatments",
     description:
-      "30+ professional pest control services. Cockroaches, bed bugs, rats, mice, termites, wildlife & more. Pricing from $49. Text 212-202-8545.",
+      "30+ services — $249/hr (fully inclusive — save money). The only NYC pest control service that bills fully inclusive hourly. Cockroaches, bed bugs, rats, mice, termites, wildlife & more. Text 212-202-8545.",
     url: `${SITE_URL}/services`,
   },
   alternates: {
@@ -81,7 +81,7 @@ export default function ServicesPage() {
               of infestation you might encounter in the New York City metro area. From cockroach extermination
               in Manhattan apartments to rat control in Brooklyn restaurants, our licensed and insured
               pest control technicians deliver results you can count on. Every service includes a free
-              on-site inspection, transparent upfront pricing starting at just $49, and our satisfaction
+              on-site inspection, transparent upfront $249/hour flat — fully inclusive, and our satisfaction
               guarantee. Call or text us at{" "}
               <a href={`tel:${PHONE}`} className="font-semibold text-green-400 hover:underline">{PHONE}</a>{" "}
               to schedule your pest control appointment today.
@@ -96,7 +96,7 @@ export default function ServicesPage() {
               with same-day and next-day availability on most pest control services. Check our{" "}
               <Link href="/pricing" className="text-green-400 hover:underline">pricing page</Link>{" "}
               for detailed cost breakdowns, or{" "}
-              <Link href="/quote-request" className="text-green-400 hover:underline">request a free quote</Link>{" "}
+              <Link href="/schedule-service" className="text-green-400 hover:underline">request a free quote</Link>{" "}
               online right now.
             </p>
 
@@ -191,7 +191,7 @@ export default function ServicesPage() {
             you need? Call us at{" "}
             <a href={`tel:${PHONE}`} className="text-green-400 hover:underline">{PHONE}</a>{" "}
             and we will identify the right pest control solution for you over the phone — or{" "}
-            <Link href="/quote-request" className="text-green-400 hover:underline">request a free quote</Link>{" "}
+            <Link href="/schedule-service" className="text-green-400 hover:underline">request a free quote</Link>{" "}
             online.
           </p>
 
@@ -368,7 +368,7 @@ export default function ServicesPage() {
                   superintendents to coordinate treatment across units when necessary. Multi-unit
                   buildings often require coordinated pest control efforts to prevent pests from
                   simply migrating from treated units to untreated ones — we manage this process
-                  from start to finish. Pricing for residential pest control starts at just $49 for
+                  from start to finish. Pricing for residential pest control is $249/hour flat — fully inclusive for
                   single-service treatments, with discounted rates available for monthly and quarterly
                   maintenance plans. See full details on our{" "}
                   <Link href="/pricing" className="text-green-400 hover:underline">pricing page</Link>.

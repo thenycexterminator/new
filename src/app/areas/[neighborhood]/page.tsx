@@ -75,7 +75,7 @@ export default async function NeighborhoodHubPage({ params }: PageProps) {
     },
     {
       q: `How much does pest control cost in ${neighborhood.name}?`,
-      a: `Pest control costs in ${neighborhood.name} vary by service. General pest control starts at $125-$300. Bed bug treatment runs $300-$1,500. Rodent control starts at $200-$600. We provide free inspections and upfront quotes.`,
+      a: `Pest control in ${neighborhood.name} is billed at $249/hour flat — fully inclusive of labor, products, treatment, and follow-up. Same rate for every service. Pay only when the job is done. No deposit, no contract, no add-ons. Free on-site inspection off the clock.`,
     },
     {
       q: `Do you offer same-day pest control in ${neighborhood.name}?`,

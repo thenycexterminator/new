@@ -19,7 +19,6 @@ import {
 } from "@/lib/seo";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import CTAGroup from "@/components/CTAGroup";
-import ContactForm from "@/components/ContactForm";
 
 interface PageProps {
   params: Promise<{ service: string }>;
@@ -119,7 +118,10 @@ export default async function ServiceHubPage({ params }: PageProps) {
 
               <div className="mt-6 flex flex-wrap gap-3">
                 <span className="rounded-full bg-green-500/10 px-3 py-1 text-sm font-medium text-green-400">
-                  {service.priceRange}
+                  {service.priceRange} &middot; fully inclusive
+                </span>
+                <span className="rounded-full bg-green-500/10 px-3 py-1 text-sm font-medium text-green-400">
+                  Pay on completion
                 </span>
                 {service.emergencyAvailable && (
                   <span className="rounded-full bg-red-500/10 px-3 py-1 text-sm font-medium text-red-400">
@@ -134,16 +136,34 @@ export default async function ServiceHubPage({ params }: PageProps) {
               <CTAGroup variant="hero" />
             </div>
 
-            <div className="rounded-xl border border-zinc-800 bg-[#141414] p-6">
-              <h2 className="text-lg font-semibold text-white">
-                Get a Free {service.name} Quote
-              </h2>
-              <p className="mt-1 text-sm text-zinc-400">
-                Free inspection. Upfront pricing. Same-day service available.
+            <div className="rounded-xl border-2 border-green-700/50 bg-gradient-to-br from-green-950/40 to-zinc-900/60 p-8 shadow-2xl shadow-green-900/20">
+              <p className="text-xs font-semibold uppercase tracking-widest text-green-400">
+                One Honest Rate. Pay on Completion.
               </p>
-              <div className="mt-4">
-                <ContactForm service={service.name} compact dark />
-              </div>
+              <p className="mt-4 text-5xl font-extrabold text-white">
+                $249<span className="text-lg font-medium text-zinc-400">/hr</span>
+              </p>
+              <p className="mt-2 text-sm text-zinc-400">
+                Flat. Fully inclusive. Labor, products, treatment, follow-up. No deposit. No contract. No catches.
+              </p>
+              <ul className="mt-5 space-y-2 text-sm text-zinc-300">
+                <li>&#10003; Same $249/hr for {nameLower}</li>
+                <li>&#10003; Free on-site inspection (off the clock)</li>
+                <li>&#10003; Bill arrives only after the job is done</li>
+                <li>&#10003; Free re-treatment inside the guarantee</li>
+              </ul>
+              <Link
+                href="/schedule-service"
+                className="mt-6 inline-flex w-full items-center justify-center rounded-xl bg-green-600 px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-green-600/25 hover:bg-green-500"
+              >
+                Schedule {service.name} &rarr;
+              </Link>
+              <p className="mt-3 text-center text-xs text-zinc-500">
+                Or call/text{" "}
+                <a href={`tel:${phonePlain}`} className="font-semibold text-green-400 hover:text-green-300">
+                  {PHONE}
+                </a>
+              </p>
             </div>
           </div>
         </div>

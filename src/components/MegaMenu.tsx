@@ -168,20 +168,20 @@ export default function MegaMenu({ categories, phone }: MegaMenuProps) {
         </div>
 
         <Link
-          href="/book-exterminator-today"
+          href="/schedule-service"
           className="ml-3 rounded-lg bg-green-600 px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-green-600/20 transition-all hover:bg-green-500 hover:shadow-green-500/30 hover:-translate-y-px"
         >
-          Book Yourself
+          Schedule Service
         </Link>
       </nav>
 
       {/* Mobile */}
       <div className="flex items-center gap-3 lg:hidden">
         <Link
-          href="/book-exterminator-today"
+          href="/schedule-service"
           className="rounded-lg bg-green-600 px-3 py-2 text-sm font-semibold text-white shadow-lg shadow-green-600/20 hover:bg-green-500"
         >
-          Book Yourself
+          Schedule
         </Link>
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
@@ -307,11 +307,11 @@ export default function MegaMenu({ categories, phone }: MegaMenuProps) {
               </a>
             </div>
             <Link
-              href="/book-exterminator-today"
+              href="/schedule-service"
               className="block w-full rounded-xl border border-white/[0.08] py-3 text-center text-sm font-semibold text-green-400 hover:bg-white/[0.04]"
               onClick={() => setMobileOpen(false)}
             >
-              Book Yourself &rarr;
+              Schedule Service &rarr;
             </Link>
           </div>
         </div>

@@ -13,15 +13,15 @@ import CTAGroup from "@/components/CTAGroup";
 const phonePlain = PHONE.replace(/-/g, "");
 
 export const metadata: Metadata = {
-  title: "NYC Pest Control Tips & Guide | Expert Advice from Licensed Exterminators",
+  title: "NYC Pest Control Tips & Guide | $249/hr Fully Inclusive | Expert Advice from Licensed Exterminators",
   description:
-    "Free expert pest control tips from licensed NYC exterminators. Cockroach prevention, bed bug detection, mouse-proofing, tenant rights, seasonal guides & more. Real advice that actually works — not generic fluff.",
+    "Free expert tips from $249/hr (fully inclusive — save money) NYC exterminators. The only NYC pest control service that bills fully inclusive hourly. Cockroach prevention, bed bug detection, mouse-proofing, tenant rights, seasonal guides & more. Real advice that actually works.",
   keywords:
     "pest control tips NYC, cockroach prevention tips, bed bug detection, mouse proof apartment, NYC tenant rights pest control, seasonal pest prevention, DIY pest control, natural pest control, restaurant pest control NYC",
   openGraph: {
-    title: "NYC Pest Control Tips & Expert Guide | The NYC Exterminator",
+    title: "NYC Pest Control Tips & Expert Guide | $249/hr Fully Inclusive",
     description:
-      "Free expert pest control tips from licensed NYC exterminators. Real, actionable advice for cockroach prevention, bed bug detection, mouse-proofing, tenant rights, and more.",
+      "Free expert tips from licensed NYC exterminators. $249/hr (fully inclusive — save money). The only NYC pest control service that bills fully inclusive hourly. Real, actionable advice for cockroach prevention, bed bug detection, mouse-proofing, tenant rights, and more.",
     url: `${SITE_URL}/pest-control-tips`,
     siteName: SITE_NAME,
     type: "website",
