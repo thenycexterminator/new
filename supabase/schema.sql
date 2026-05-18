@@ -60,9 +60,10 @@ create index if not exists events_type_idx on events (type);
 create index if not exists events_ts_idx on events (ts desc);
 
 -- Leads (form submissions: service-quote | general-inquiry | job-application)
+-- session_id is NOT a foreign key — a missing/race-stale session must never block lead capture.
 create table if not exists leads (
   id uuid primary key default uuid_generate_v4(),
-  session_id text references sessions(id) on delete set null,
+  session_id text,
   form_type text not null,
   name text,
   email text,
@@ -78,8 +79,22 @@ create index if not exists leads_ts_idx on leads (ts desc);
 create index if not exists leads_form_type_idx on leads (form_type);
 create index if not exists leads_session_idx on leads (session_id);
 
+-- Backup table for any lead that fails the primary insert. No FKs, minimal schema.
+-- Anything that lands here is a lead that needs manual recovery into `leads`.
+create table if not exists failed_leads (
+  id uuid primary key default uuid_generate_v4(),
+  ts timestamptz not null default now(),
+  raw_payload jsonb,
+  error_message text,
+  recovered boolean not null default false
+);
+
+create index if not exists failed_leads_ts_idx on failed_leads (ts desc);
+create index if not exists failed_leads_recovered_idx on failed_leads (recovered) where recovered = false;
+
 -- RLS: lock everything down. Service role bypasses RLS; anon key has no access.
 alter table sessions enable row level security;
 alter table page_views enable row level security;
 alter table events enable row level security;
 alter table leads enable row level security;
+alter table failed_leads enable row level security;
