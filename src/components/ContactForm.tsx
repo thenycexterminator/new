@@ -169,7 +169,7 @@ export default function ContactForm({
           <textarea id="message" name="message" required rows={3} className={inputClass} placeholder="What pests are you seeing? Where in the property?" />
         </div>
         <button type="submit" disabled={status === "sending"} className="w-full rounded-lg bg-green-600 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-green-700 disabled:opacity-50">
-          {status === "sending" ? "Sending..." : "Request a Free Quote"}
+          {status === "sending" ? "Sending..." : "Self-Book & Save $25 →"}
         </button>
         {status === "error" && (
           <p className={`text-center text-sm ${dark ? "text-red-400" : "text-red-600"}`}>Something went wrong. Please try again or call us directly.</p>
@@ -248,8 +248,10 @@ export default function ContactForm({
       </button>
 
       <p className={`text-center text-xs ${dark ? "text-zinc-500" : "text-zinc-500"}`}>
-        Free inspections. Upfront pricing. No obligation.
-        We&apos;ll respond within 2 hours during business hours.
+        <span className={dark ? "font-semibold text-green-400" : "font-semibold text-green-700"}>
+          $25 off applied automatically for self-booked requests.
+        </span>
+        {" "}Free inspections. Upfront pricing. No obligation. We&apos;ll respond within 2 hours during business hours.
       </p>
 
       {status === "error" && (

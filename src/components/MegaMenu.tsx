@@ -171,7 +171,7 @@ export default function MegaMenu({ categories, phone }: MegaMenuProps) {
           href="/schedule-service"
           className="ml-3 rounded-lg bg-green-600 px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-green-600/20 transition-all hover:bg-green-500 hover:shadow-green-500/30 hover:-translate-y-px"
         >
-          Schedule Service
+          Self-Book &mdash; Save $25
         </Link>
       </nav>
 
@@ -181,7 +181,7 @@ export default function MegaMenu({ categories, phone }: MegaMenuProps) {
           href="/schedule-service"
           className="rounded-lg bg-green-600 px-3 py-2 text-sm font-semibold text-white shadow-lg shadow-green-600/20 hover:bg-green-500"
         >
-          Schedule
+          Save $25
         </Link>
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
@@ -289,15 +289,22 @@ export default function MegaMenu({ categories, phone }: MegaMenuProps) {
             )}
           </div>
 
-          {/* Fixed bottom CTAs */}
+          {/* Fixed bottom CTAs — self-book is primary (saves $25) */}
           <div className="border-t border-white/[0.06] px-5 py-5 space-y-3">
+            <Link
+              href="/schedule-service"
+              className="flex w-full items-center justify-center rounded-xl bg-green-600 py-3.5 text-sm font-bold text-white shadow-lg shadow-green-600/20 hover:bg-green-500"
+              onClick={() => setMobileOpen(false)}
+            >
+              Self-Book &mdash; Save $25
+            </Link>
             <div className="grid grid-cols-2 gap-3">
               <a
                 href={`sms:${phonePlain}`}
-                className="flex items-center justify-center rounded-xl bg-green-600 py-3.5 text-sm font-bold text-white shadow-lg shadow-green-600/20 hover:bg-green-500"
+                className="flex items-center justify-center rounded-xl border border-white/[0.08] bg-white/[0.04] py-3.5 text-sm font-bold text-white hover:bg-white/[0.08]"
                 onClick={() => setMobileOpen(false)}
               >
-                Text Us Now
+                Text Us
               </a>
               <a
                 href={`tel:${phonePlain}`}
@@ -306,13 +313,9 @@ export default function MegaMenu({ categories, phone }: MegaMenuProps) {
                 Call {phone}
               </a>
             </div>
-            <Link
-              href="/schedule-service"
-              className="block w-full rounded-xl border border-white/[0.08] py-3 text-center text-sm font-semibold text-green-400 hover:bg-white/[0.04]"
-              onClick={() => setMobileOpen(false)}
-            >
-              Schedule Service &rarr;
-            </Link>
+            <p className="text-center text-xs text-zinc-500">
+              Self-booking is the fastest path for same-day &amp; emergency &mdash; and saves $25.
+            </p>
           </div>
         </div>
       , document.body)}

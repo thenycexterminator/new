@@ -164,15 +164,36 @@ export default function ScheduleServicePage() {
           </div>
 
           {/* ── Booking Form ── */}
-          <div className="mt-10 rounded-xl border border-zinc-800 bg-[#141414] p-6 sm:p-8">
-            <h2 className="mb-2 text-2xl font-bold">
-              Schedule Your <span className="text-green-400">$249/hr Service</span>
-            </h2>
-            <p className="mb-6 text-sm text-zinc-400">
-              Tell us about your pest problem. We&apos;ll match you with a certified NYC technician,
-              confirm the visit, and bill you on completion. No contracts. No upfront payment.
-            </p>
-            <ContactForm dark />
+          <div className="mt-10 overflow-hidden rounded-xl border border-green-700/40 bg-[#141414] shadow-lg shadow-green-900/10">
+            <div className="border-b border-green-700/30 bg-gradient-to-r from-green-900/50 via-green-800/30 to-emerald-900/40 px-6 py-4 sm:px-8">
+              <div className="flex items-center justify-between gap-4">
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-widest text-green-300">
+                    Online-Only Discount
+                  </p>
+                  <p className="mt-1 text-lg font-extrabold text-white sm:text-xl">
+                    Save <span className="text-green-300">$25</span> when you self-book below.
+                  </p>
+                </div>
+                <div className="hidden shrink-0 rounded-lg bg-green-500/20 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-green-300 sm:block">
+                  Fastest Path
+                </div>
+              </div>
+              <p className="mt-2 text-xs text-green-100/80">
+                Self-booking is the fastest path for same-day &amp; emergency service &mdash; auto-routed to dispatch the moment you hit submit.
+              </p>
+            </div>
+            <div className="p-6 sm:p-8">
+              <h2 className="mb-2 text-2xl font-bold">
+                Schedule Your <span className="text-green-400">$249/hr Service</span>
+              </h2>
+              <p className="mb-6 text-sm text-zinc-400">
+                Tell us about your pest problem. We&apos;ll match you with a certified NYC technician,
+                confirm the visit, and bill you on completion. No contracts. No upfront payment.
+                <span className="font-semibold text-green-300"> $25 self-book discount applied automatically.</span>
+              </p>
+              <ContactForm dark />
+            </div>
           </div>
 
           {/* ── Call CTA ── */}
@@ -420,16 +441,22 @@ export default function ScheduleServicePage() {
           </p>
           <div className="mt-6 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
             <a
-              href={`tel:${PHONE.replace(/-/g, "")}`}
-              className="inline-flex items-center rounded-lg bg-green-600 px-6 py-3 text-sm font-semibold text-white hover:bg-green-700"
+              href="#top"
+              className="inline-flex items-center rounded-lg bg-green-600 px-6 py-3 text-sm font-bold text-white shadow-lg shadow-green-600/25 hover:bg-green-500"
             >
-              Call {PHONE}
+              Self-Book &mdash; Save $25 &uarr;
             </a>
             <a
               href={`sms:${PHONE.replace(/-/g, "")}`}
               className="inline-flex items-center rounded-lg border border-zinc-700 px-6 py-3 text-sm font-semibold text-white hover:border-zinc-500 hover:bg-white/5"
             >
               Text {PHONE}
+            </a>
+            <a
+              href={`tel:${PHONE.replace(/-/g, "")}`}
+              className="inline-flex items-center rounded-lg px-6 py-3 text-sm font-semibold text-green-400 hover:text-green-300"
+            >
+              Call {PHONE}
             </a>
           </div>
         </div>

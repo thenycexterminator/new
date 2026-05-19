@@ -65,40 +65,43 @@ export default function CTAGroup({ variant, title, subtitle }: CTAGroupProps) {
     return (
       <div className="mt-8">
         <div className="mb-5 space-y-1.5 text-sm text-zinc-400">
+          <p>&#10003; <strong className="text-green-400">Self-book online &mdash; save $25</strong> &middot; fastest path for same-day &amp; emergency</p>
           <p>&#10003; <strong className="text-zinc-200">No money upfront</strong> &mdash; pay when the job is done</p>
           <p>&#10003; <strong className="text-zinc-200">2,847+</strong> five-star reviews</p>
-          <p>&#10003; <strong className="text-zinc-200">100% satisfaction</strong> guarantee</p>
           <p>&#10003; <strong className="text-zinc-200">Licensed &amp; insured</strong> NYS DEC exterminators</p>
         </div>
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+          <Link
+            href="/schedule-service"
+            data-cta="schedule-service"
+            data-cta-location={`cta-${variant}`}
+            className="group inline-flex items-center justify-center gap-2 rounded-xl bg-green-600 px-7 py-3.5 text-sm font-bold text-white shadow-lg shadow-green-600/25 transition-all hover:bg-green-500 hover:shadow-green-500/30 hover:-translate-y-0.5"
+          >
+            <CalendarIcon />
+            Self-Book &mdash; Save $25
+          </Link>
           <a
             href={`sms:${phonePlain}`}
             data-cta="text-us"
             data-cta-location={`cta-${variant}`}
-            className="group inline-flex items-center justify-center gap-2 rounded-xl bg-green-600 px-7 py-3.5 text-sm font-bold text-white shadow-lg shadow-green-600/25 transition-all hover:bg-green-500 hover:shadow-green-500/30 hover:-translate-y-0.5"
+            className="group inline-flex items-center justify-center gap-2 rounded-xl border border-zinc-700 bg-white/5 px-7 py-3.5 text-sm font-bold text-white backdrop-blur transition-all hover:border-zinc-500 hover:bg-white/10 hover:-translate-y-0.5"
           >
             <SmsIcon />
-            Text Us Now
+            Text Us
           </a>
           <a
             href={`tel:${phonePlain}`}
             data-cta="call-us"
             data-cta-location={`cta-${variant}`}
-            className="group inline-flex items-center justify-center gap-2 rounded-xl border border-zinc-700 bg-white/5 px-7 py-3.5 text-sm font-bold text-white backdrop-blur transition-all hover:border-zinc-500 hover:bg-white/10 hover:-translate-y-0.5"
+            className="group inline-flex items-center justify-center gap-2 rounded-xl px-7 py-3.5 text-sm font-bold text-green-400 transition-all hover:text-green-300 hover:-translate-y-0.5"
           >
             <PhoneIcon />
             Call {PHONE}
           </a>
-          <Link
-            href="/schedule-service"
-            data-cta="schedule-service"
-            data-cta-location={`cta-${variant}`}
-            className="group inline-flex items-center justify-center gap-2 rounded-xl px-7 py-3.5 text-sm font-bold text-green-400 transition-all hover:text-green-300 hover:-translate-y-0.5"
-          >
-            <CalendarIcon />
-            Schedule Service
-          </Link>
         </div>
+        <p className="mt-3 text-xs text-zinc-500">
+          Self-booking is the fastest path for same-day &amp; emergency service &mdash; and saves you $25 off your first hour.
+        </p>
       </div>
     );
   }
@@ -116,40 +119,43 @@ export default function CTAGroup({ variant, title, subtitle }: CTAGroupProps) {
           {sub}
         </p>
         <div className="mx-auto mt-5 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-sm text-green-100/80">
+          <span><strong className="text-white">&#10003; Self-book &mdash; save $25</strong></span>
           <span>&#10003; No money upfront</span>
           <span>&#10003; 2,847+ five-star reviews</span>
-          <span>&#10003; 100% satisfaction guarantee</span>
           <span>&#10003; Licensed &amp; insured</span>
         </div>
         <div className="mt-6 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
+          <Link
+            href="/schedule-service"
+            data-cta="schedule-service"
+            data-cta-location={`cta-${variant}`}
+            className="group inline-flex items-center gap-2 rounded-xl bg-white px-7 py-3.5 text-lg font-bold text-green-700 shadow-lg shadow-black/10 transition-all hover:bg-green-50 hover:-translate-y-0.5"
+          >
+            <CalendarIcon />
+            Self-Book &mdash; Save $25
+          </Link>
           <a
             href={`sms:${phonePlain}`}
             data-cta="text-us"
             data-cta-location={`cta-${variant}`}
-            className="group inline-flex items-center gap-2 rounded-xl bg-white px-7 py-3.5 text-lg font-bold text-green-700 shadow-lg shadow-black/10 transition-all hover:bg-green-50 hover:-translate-y-0.5"
+            className="group inline-flex items-center gap-2 rounded-xl border-2 border-white px-7 py-3.5 text-lg font-bold text-white transition-all hover:bg-white/10 hover:-translate-y-0.5"
           >
             <SmsIcon />
-            Text Us Now
+            Text Us
           </a>
           <a
             href={`tel:${phonePlain}`}
             data-cta="call-us"
             data-cta-location={`cta-${variant}`}
-            className="group inline-flex items-center gap-2 rounded-xl border-2 border-white px-7 py-3.5 text-lg font-bold text-white transition-all hover:bg-white/10 hover:-translate-y-0.5"
+            className="group inline-flex items-center gap-2 rounded-xl px-7 py-3.5 text-lg font-bold text-green-100 transition-all hover:text-white hover:-translate-y-0.5"
           >
             <PhoneIcon />
             Call {PHONE}
           </a>
-          <Link
-            href="/schedule-service"
-            data-cta="schedule-service"
-            data-cta-location={`cta-${variant}`}
-            className="group inline-flex items-center gap-2 rounded-xl px-7 py-3.5 text-lg font-bold text-green-100 transition-all hover:text-white hover:-translate-y-0.5"
-          >
-            <CalendarIcon />
-            Schedule Service
-          </Link>
         </div>
+        <p className="mx-auto mt-4 max-w-2xl text-xs text-green-100/70">
+          Self-booking is the fastest path for same-day &amp; emergency service &mdash; and saves you $25 off your first hour.
+        </p>
       </div>
     </section>
   );
