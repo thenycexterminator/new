@@ -172,7 +172,7 @@ export default function ScheduleServicePage() {
               Tell us about your pest problem. We&apos;ll match you with a certified NYC technician,
               confirm the visit, and bill you on completion. No contracts. No upfront payment.
             </p>
-            <ContactForm />
+            <ContactForm dark />
           </div>
 
           {/* ── Call CTA ── */}
